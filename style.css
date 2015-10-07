@@ -1,4 +1,5 @@
 .Background-img {
+  background: ("./img/one-piece.jpg");
   background-repeat: no-repeat;
   display: block;
   background-size: cover;
@@ -12,7 +13,7 @@
 .intro-section h2, p{
   margin: 0 auto;
   text-align: center;
-  color: black;
+  color: white;
 }
 .startQuiz {
   margin: 0 auto;
@@ -27,17 +28,17 @@
 .quizSection h3, h2 {
   margin: 0 auto;
   text-align: center;
-  color: black;
+  color: white;
 }
 #submitAnswer {
   margin: 0 auto;
   text-align: center;
   display: block;
-  color: black;
+  color: white;
 }
 #startQuiz {
   margin: 0 auto;
   text-align: center;
   display: block;
-  color: black;
+  color: white;
 }
