@@ -1,12 +1,3 @@
-.Background-img {
-  background: ("./img/one-piece.jpg");
-  background-repeat: no-repeat;
-  display: block;
-  background-size: cover;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
 .mainTitle {
   text-align: center;
 }
@@ -28,7 +19,7 @@
 .quizSection h3, h2 {
   margin: 0 auto;
   text-align: center;
-  color: white;
+  color: #215D54
 }
 #submitAnswer {
   margin: 0 auto;
@@ -41,4 +32,14 @@
   text-align: center;
   display: block;
   color: white;
+}
+.background-img {
+  background: url('./img/one-piece.jpg');
+  background-repeat: no-repeat;
+  display: block;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
