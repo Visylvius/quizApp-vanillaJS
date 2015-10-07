@@ -7,19 +7,38 @@
   </head>
   <body>
     <div class="Container">
-      <div>
-        <img src="http://nfswallpapers.com/wp-content/uploads/2015/08/One-Piece-Crew-New-World-Desktop-Wallpaper.jpg" alt="One Piece Quiz Background Image" class='Background-img'/>
-      </div>
+      <div class="background-img"></div>
       <header class="Title">
         <h1 class="mainTitle">One Piece Quiz</h1>
       </header>
+      <section class="intro-section">
+        <h2>How much do you know about the Strawhat Crew?</h2>
+        <p>Lets find out!</p>
+        <button class="startQuiz">Begin Quiz</button>
+      </section>
+      <section class="quizSection">
+        <div class="quizQuestions">
+          <h3 id='questionNum'>Question X of Y</h3>
+          <h2 id='question'></h2>
+          <div class="quiz-options">
+            <input type="radio" id='choices' class='multipleChoice' name='choices' value='0'>
+            <br>
+            <input type="radio" id='choices' class='multipleChoice' name='choices' value='1'>
+            <br>
+            <input type="radio" id='choices' class='multipleChoice' name='choices' value='2'>
+            <br>
+            <input type="radio" id='choices' class='multipleChoice' name='choices' value='3'>
+          </div>
+          <button id='submitAnswer'>Next</button>
+        </div>
+      </section>
+      <section class="resultSection">
+        <h2 class='finishMessage'>Nice Job! You finished in One Piece!</h2>
+        <h2 id='show-score'>Your score is X / Y</h2>
+        <button id='startQuiz'>Try Again</button>
+
+      </section>
     </div>
-
-    <section class="intro-section">
-      <h2>Who will be the Pirate King?</h2>
-      <p></p>
-    </section>
-
 
 
 
