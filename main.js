@@ -68,3 +68,15 @@ var questions = [
 
 var questionTotal = questions.length;
 var correctAnswerTotal = 0;
+var formValue;
+var form = document.getElementById('Quiz');
+function getInputValue(event) {
+    event.preventDefault();
+    console.log(document.querySelector('input[name="choices"]:checked').value);
+}
+function displayQuestion() {
+	var questionForm = document.getElementById('question').innerHTML += questions[question];
+
+}
+
+form.addEventListener('submit', getInputValue, false);
