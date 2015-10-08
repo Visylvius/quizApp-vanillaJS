@@ -1,5 +1,6 @@
 .mainTitle {
   text-align: center;
+  color: white;
 }
 .intro-section h2, p{
   margin: 0 auto;
@@ -25,16 +26,27 @@
   margin: 0 auto;
   text-align: center;
   display: block;
-  color: white;
+  color: black;
 }
 #startQuiz {
   margin: 0 auto;
   text-align: center;
   display: block;
-  color: white;
+  color: black;
+}
+h3#questionNum {
+    color: white;
+}
+
+h2.finishMessage {
+    color: white;
+}
+
+h2#show-score {
+    color: white;
 }
 .background-img {
-  background: url('./img/one-piece.jpg');
+  background: url('./img/one-piece2.jpg');
   background-repeat: no-repeat;
   display: block;
   background-size: cover;
