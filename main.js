@@ -1,6 +1,9 @@
 //quiz questions
 
-var questions = [
+var quiz = {
+  name: "How much do you know about the Strawhat Crew?",
+  questions:
+ [
 
   //question 1
   {
@@ -62,21 +65,33 @@ var questions = [
     options: ['Robin', 'Nami', 'Franky', 'Zoro'],
     answer: 2
   }
-];
+]
+};
 
 //variables
-
-var questionTotal = questions.length;
+var questionNum = 0;
 var correctAnswerTotal = 0;
 var formValue;
 var form = document.getElementById('Quiz');
 function getInputValue(event) {
     event.preventDefault();
-    console.log(document.querySelector('input[name="choices"]:checked').value);
+	formValue = document.querySelector('input[name="choices"]:checked').value;
+    console.log(formValue);
 }
 function displayQuestion() {
-	var questionForm = document.getElementById('question').innerHTML += questions[question];
-
+	var questionForm = document.getElementById('question').innerHTML += quiz.questions[questionNum].question;
+    var optionsTotal = quiz.questions[questionNum].options.length;
+    var myHTML;
+    for (var i = 0; i < optionsTotal; i++) {
+    	myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' + quiz.questions[questionNum].options[i] + '<br>';
+        console.log(myHTML);
+        var node = document.createElement('div');
+        node.innerHTML = myHTML;
+    	document.getElementById('Quiz').appendChild(node);
+    }
 }
-
+// while (questionNum < quiz.questions.length) {
+//
+// }
 form.addEventListener('submit', getInputValue, false);
+displayQuestion();
