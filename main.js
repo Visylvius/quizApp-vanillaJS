@@ -55,7 +55,7 @@ var quiz = {
   },
   // question 9
   {
-    question: "Which crewmate has a member in the Marines?",
+    question: "Which crewmate has a family member in the Marines?",
     options: ['Zoro', 'Usopp', 'Nami', 'Luffy'],
     answer: 3
   },
@@ -75,23 +75,27 @@ var formValue;
 var form = document.getElementById('Quiz');
 function getInputValue(event) {
     event.preventDefault();
-	formValue = document.querySelector('input[name="choices"]:checked').value;
+	  formValue = document.querySelector('input[name="choices"]:checked').value;
     console.log(formValue);
 }
 function displayQuestion() {
 	var questionForm = document.getElementById('question').innerHTML += quiz.questions[questionNum].question;
-    var optionsTotal = quiz.questions[questionNum].options.length;
-    var myHTML;
+  var optionsTotal = quiz.questions[questionNum].options.length;
+  var myHTML;
     for (var i = 0; i < optionsTotal; i++) {
     	myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' + quiz.questions[questionNum].options[i] + '<br>';
-        console.log(myHTML);
         var node = document.createElement('div');
         node.innerHTML = myHTML;
-    	document.getElementById('Quiz').appendChild(node);
+    	  document.getElementById('Quiz').appendChild(node);
+
     }
+
 }
 // while (questionNum < quiz.questions.length) {
+//   questionNum++;
 //
 // }
-form.addEventListener('submit', getInputValue, false);
 displayQuestion();
+form.addEventListener('submit', getInputValue, false);
+
+// displayQuestion();
