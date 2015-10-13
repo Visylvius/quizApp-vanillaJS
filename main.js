@@ -91,6 +91,14 @@ function displayQuestion() {
     }
 
 }
+//function loopThroughTheQuestionsArray() {
+  //var optionsTotal = quiz.questions[questionNum].options.length;
+  //for (var i = 0; i < optionsTotal; i++) {
+	//quiz.question[questionNum].question++;
+    //displayQuestion();
+  //}
+//}
+
 // while (questionNum < quiz.questions.length) {
 //   questionNum++;
 //
