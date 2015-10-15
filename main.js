@@ -74,6 +74,7 @@ var questionNum = 0;
 var correctAnswerTotal = 0;
 var formValue;
 var form = document.getElementById('Quiz');
+var intro = document.getElementById('intro');
 var node;
 var myHTML;
 
@@ -107,12 +108,19 @@ function displayQuestion() {
    questionNum++;
 }
 
-
+function hideIntroSection(event) {
+ event.preventDefault();
+ var intro = document.getElementById('intro');
+ intro.className = intro.className + 'hide';
+ console.log(intro.className);
+}
 
 // while (questionNum < quiz.questions.length) {
 //   questionNum++;
 //
 // }
 displayQuestion();
+
 form.addEventListener('submit', getInputValue, false);
+intro.addEventListener('submit', hideIntroSection, false);
 // displayQuestion();
