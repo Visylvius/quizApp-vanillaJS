@@ -2,6 +2,7 @@
 
 var quiz = {
   name: "How much do you know about the Strawhat Crew?",
+  statement: 'Lets Find Out!',
   questions:
  [
 
@@ -86,33 +87,26 @@ function getInputValue(event) {
       	//quiz.questions.options[i]++;
       }
     }
-
     displayQuestion();
     console.log(formValue);
 }
 
 
 function displayQuestion() {
-	var questionForm = document.getElementById('question').innerHTML = quiz.questions[questionNum].question;
+  var questionForm = document.getElementById('question').innerHTML =             quiz.questions[questionNum].question;
   var optionsTotal = quiz.questions[questionNum].options.length;
-
-    document.getElementById('answers').innerHTML = '';
-
-    for (var i = 0; i < optionsTotal; i++) {
-    	myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' + quiz.questions[questionNum].options[i] + '<br>';
-        var node = document.createElement('div');
-        node.innerHTML = myHTML;
-    	document.getElementById('answers').appendChild(node);
-	}
+  document.getElementById('quiz.name').innerHTML = quiz.name;
+  document.getElementById('answers').innerHTML = '';
+  for (var i = 0; i < optionsTotal; i++) {
+    document.getElementById('questionNum').innerHTML = "Question " + (questionNum + 1) + " of " + 10;
+    myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice"   	   name="choices" value="' + i + '">' +quiz.questions[questionNum].options[i] + '<br>';
+	var node = document.createElement('div');
+    node.innerHTML = myHTML;
+    document.getElementById('answers').appendChild(node);
+  }
    questionNum++;
 }
 
-//function loopThroughTheQuestionsArray() {
-  //var optionsTotal = quiz.questions[questionNum].options.length;
-  //for (var i = 0; i < optionsTotal; i++) {
-	//quiz.question[questionNum].question++;
-  //}
-//}
 
 
 // while (questionNum < quiz.questions.length) {
