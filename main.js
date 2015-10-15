@@ -73,31 +73,47 @@ var questionNum = 0;
 var correctAnswerTotal = 0;
 var formValue;
 var form = document.getElementById('Quiz');
+var node;
+var myHTML;
+
 function getInputValue(event) {
     event.preventDefault();
-	  formValue = document.querySelector('input[name="choices"]:checked').value;
+    var optionsTotal = quiz.questions[questionNum].options.length;
+	formValue = document.querySelector('input[name="choices"]:checked').value;
+    if (formValue === quiz.questions.answer) {
+      for (var i = 0; i < optionsTotal; i++) {
+        correctAnswerTotal++;
+      	//quiz.questions.options[i]++;
+      }
+    }
+
+    displayQuestion();
     console.log(formValue);
 }
+
+
 function displayQuestion() {
-	var questionForm = document.getElementById('question').innerHTML += quiz.questions[questionNum].question;
+	var questionForm = document.getElementById('question').innerHTML = quiz.questions[questionNum].question;
   var optionsTotal = quiz.questions[questionNum].options.length;
-  var myHTML;
+
+    document.getElementById('answers').innerHTML = '';
+
     for (var i = 0; i < optionsTotal; i++) {
     	myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' + quiz.questions[questionNum].options[i] + '<br>';
         var node = document.createElement('div');
         node.innerHTML = myHTML;
-    	  document.getElementById('Quiz').appendChild(node);
-
-    }
-
+    	document.getElementById('answers').appendChild(node);
+	}
+   questionNum++;
 }
+
 //function loopThroughTheQuestionsArray() {
   //var optionsTotal = quiz.questions[questionNum].options.length;
   //for (var i = 0; i < optionsTotal; i++) {
 	//quiz.question[questionNum].question++;
-    //displayQuestion();
   //}
 //}
+
 
 // while (questionNum < quiz.questions.length) {
 //   questionNum++;
@@ -105,5 +121,4 @@ function displayQuestion() {
 // }
 displayQuestion();
 form.addEventListener('submit', getInputValue, false);
-
 // displayQuestion();
