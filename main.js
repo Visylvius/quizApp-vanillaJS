@@ -75,6 +75,8 @@ var correctAnswerTotal = 0;
 var formValue;
 var form = document.getElementById('Quiz');
 var intro = document.getElementById('intro');
+var result = document.getElementById('result');
+result.className = result.className + 'hide';
 var node;
 var myHTML;
 
