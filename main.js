@@ -83,27 +83,23 @@ result.className = result.className + 'hide';
 var node;
 var myHTML;
 
+//gets input value and increases correctAnswerTotal by 1 if answered correctly. Then checks to see if all the questions have been finished.
 function getInputValue(event) {
-    event.preventDefault();
+  event.preventDefault();
 	formValue = document.querySelector('input[name="choices"]:checked').value;
-    console.log(quiz.questions[questionNum].options);
-    if ( Number(formValue) === quiz.questions[questionNum].answer) {
-      correctAnswerTotal++;
+  if ( Number(formValue) === quiz.questions[questionNum].answer) {
+    correctAnswerTotal++;
 	}
-    questionNum++;
-
-    if (questionNum === quiz.questions.length) {
-    	result.className = result.className + 'show';
+  questionNum++;
+  if (questionNum === quiz.questions.length) {
+    result.className = result.className + 'show';
 		quizQuestions.className = 'hide';
-        //multipleChoice.className = 'hide';
-
-    } else {
+    document.getElementById('show-score').innerHTML = 'You got ' + correctAnswerTotal + ' out of ' + quiz.questions.length + ' correct';
+  } else {
     displayQuestion();
-    //displayScore();
-    }
+  }
 }
-
-
+//dynamically creates HTML, and appends questions to the DOM
 function displayQuestion() {
   var questionForm = document.getElementById('question').innerHTML =         	quiz.questions[questionNum].question;
   var optionsTotal = quiz.questions[questionNum].options.length;
@@ -111,13 +107,13 @@ function displayQuestion() {
   document.getElementById('answers').innerHTML = '';
   for (var i = 0; i < optionsTotal; i++) {
     document.getElementById('questionNum').innerHTML = "Question " + (questionNum + 1) + " of " + 10;
-    myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' + quiz.questions[questionNum].options[i] + '<br>';
+    myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' +quiz.questions[questionNum].options[i] + '<br>';
 	  var node = document.createElement('div');
     node.innerHTML = myHTML;
     document.getElementById('answers').appendChild(node);
   }
 }
-
+//when the start quiz button his hit, this function hides the intro HTML and shows the actual questions
 function hideIntroSection(event) {
  event.preventDefault();
  var intro = document.getElementById('intro');
@@ -127,12 +123,12 @@ function hideIntroSection(event) {
  displayQuestion();
 }
 
+//once the quiz has been completed this function shows the user the score,
 function displayScore(event) {
 	if (questionNum === quiz.questions.length) {
-    	result.className = result.className + 'show';
-        multipleChoice.classname = multipleChoice.classname + 'hide';
-
-    }
+    result.className = result.className + 'show';
+    multipleChoice.classname = multipleChoice.classname + 'hide';
+  }
 }
 
 function startTheQuizOver(event) {
