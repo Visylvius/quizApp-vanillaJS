@@ -76,53 +76,74 @@ var formValue;
 var form = document.getElementById('Quiz');
 var intro = document.getElementById('intro');
 var result = document.getElementById('result');
+var quizQuestions = document.getElementById('mainQuiz');
+document.getElementById('quiz.name').innerHTML = quiz.name;
+quizQuestions.className = 'hide';
 result.className = result.className + 'hide';
 var node;
 var myHTML;
 
 function getInputValue(event) {
     event.preventDefault();
-    var optionsTotal = quiz.questions[questionNum].options.length;
 	formValue = document.querySelector('input[name="choices"]:checked').value;
-    if (formValue === quiz.questions.answer) {
-      for (var i = 0; i < optionsTotal; i++) {
-        correctAnswerTotal++;
-      	//quiz.questions.options[i]++;
-      }
-    }
+    console.log(quiz.questions[questionNum].options);
+    if ( Number(formValue) === quiz.questions[questionNum].answer) {
+      correctAnswerTotal++;
+	}
+    questionNum++;
+
+    if (questionNum === quiz.questions.length) {
+    	result.className = result.className + 'show';
+		quizQuestions.className = 'hide';
+        //multipleChoice.className = 'hide';
+
+    } else {
     displayQuestion();
-    console.log(formValue);
+    //displayScore();
+    }
 }
 
 
 function displayQuestion() {
-  var questionForm = document.getElementById('question').innerHTML =             quiz.questions[questionNum].question;
+  var questionForm = document.getElementById('question').innerHTML =         	quiz.questions[questionNum].question;
   var optionsTotal = quiz.questions[questionNum].options.length;
-  document.getElementById('quiz.name').innerHTML = quiz.name;
+  console.log(optionsTotal);
   document.getElementById('answers').innerHTML = '';
   for (var i = 0; i < optionsTotal; i++) {
     document.getElementById('questionNum').innerHTML = "Question " + (questionNum + 1) + " of " + 10;
-    myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice"   	   name="choices" value="' + i + '">' +quiz.questions[questionNum].options[i] + '<br>';
-	var node = document.createElement('div');
+    myHTML = '<input type="radio" id="choice'+ i + '" class="multipleChoice" name="choices" value="' + i + '">' + quiz.questions[questionNum].options[i] + '<br>';
+	  var node = document.createElement('div');
     node.innerHTML = myHTML;
     document.getElementById('answers').appendChild(node);
   }
-   questionNum++;
 }
 
 function hideIntroSection(event) {
  event.preventDefault();
  var intro = document.getElementById('intro');
- intro.className = intro.className + 'hide';
+ intro.className = 'hide';
  console.log(intro.className);
+ quizQuestions.className = 'show';
+ displayQuestion();
 }
 
-// while (questionNum < quiz.questions.length) {
-//   questionNum++;
-//
-// }
-displayQuestion();
+function displayScore(event) {
+	if (questionNum === quiz.questions.length) {
+    	result.className = result.className + 'show';
+        multipleChoice.classname = multipleChoice.classname + 'hide';
+
+    }
+}
+
+function startTheQuizOver(event) {
+	event.preventDefault();
+    questionNum = 0;
+    correctAnswerTotal = 0;
+    result.className = 'hide';
+    intro.className = 'show';
+
+}
 
 form.addEventListener('submit', getInputValue, false);
 intro.addEventListener('submit', hideIntroSection, false);
-// displayQuestion();
+result.addEventListener('submit', startTheQuizOver, false);
