@@ -101,7 +101,7 @@ function getInputValue(event) {
 }
 //dynamically creates HTML, and appends questions to the DOM
 function displayQuestion() {
-  var questionForm = document.getElementById('question').innerHTML =         	quiz.questions[questionNum].question;
+  var questionForm = document.getElementById('question').innerHTML = quiz.questions[questionNum].question;
   var optionsTotal = quiz.questions[questionNum].options.length;
   console.log(optionsTotal);
   document.getElementById('answers').innerHTML = '';

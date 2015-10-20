@@ -39,6 +39,10 @@
 }
 h3#questionNum {
     color: white;
+    display: block;
+    display: inline;
+    vertical-align: middle;
+    text-align: center;
 }
 
 h2.finishMessage {
