@@ -80,8 +80,7 @@ var quizQuestions = document.getElementById('mainQuiz');
 document.getElementById('quiz.name').innerHTML = quiz.name;
 quizQuestions.className = 'hide';
 result.className = result.className + 'hide';
-var node;
-var myHTML;
+
 
 //gets input value and increases correctAnswerTotal by 1 if answered correctly. Then checks to see if all the questions have been finished.
 function getInputValue(event) {

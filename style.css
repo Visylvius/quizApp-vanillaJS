@@ -25,6 +25,12 @@
   text-align: center;
   color: #215D54
 }
+#quiz.name {
+  color: white;
+}
+h2#question {
+  color: white;
+}
 #submitAnswer {
   margin: 0 auto;
   text-align: center;
@@ -38,11 +44,11 @@
   color: black;
 }
 h3#questionNum {
-    color: white;
-    display: block;
-    display: inline;
-    vertical-align: middle;
-    text-align: center;
+  margin: 0 auto;
+  display: block;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
 }
 
 h2.finishMessage {
@@ -63,4 +69,13 @@ h2#show-score {
   z-index: -1;
 }
 div {
-color: #126FA9;}
+color: white;
+}
+.multipleChoice {
+  color: white;
+  margin: 0 auto;
+  display: block;
+  vertical-align: middle;
+  text-align: center;
+
+}
