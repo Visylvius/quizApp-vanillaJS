@@ -16,7 +16,7 @@ var quiz = {
   {
     question: "Who had Luffy's hat first?",
     options: ['Shanks', 'Gol D. Roger', 'Portagas D. Ace', 'Rayleigh'],
-    answer: 2
+    answer: 1
   },
   //question 3
   {
